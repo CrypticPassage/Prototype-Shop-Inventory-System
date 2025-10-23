@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a995c684c2341ee81f685a4e46f4731, type: 3}
+  m_Name: ItemsDatabase
+  m_EditorClassIdentifier: 
+  _items:
+  - Type: 0
+    Icon: {fileID: 2057516106615078274, guid: 96efb3e5d0c848047aadeadc9f9bfa0a, type: 3}
+    Name: Wooden Sword
+    PriceToBuyText: 5$
+    PriceToSellText: 3$
+    PriceToBuy: 5
+    PriceToSell: 3
+  - Type: 1
+    Icon: {fileID: -6981641179300335697, guid: bf3a248c821223144bc2577a9824d0b1, type: 3}
+    Name: Metallic Sword
+    PriceToBuyText: 8$
+    PriceToSellText: 4$
+    PriceToBuy: 8
+    PriceToSell: 4
+  - Type: 2
+    Icon: {fileID: 2750178941999587609, guid: 590a46323d3f8d243a55d887f1a54521, type: 3}
+    Name: Wooden Swing
+    PriceToBuyText: 4$
+    PriceToSellText: 2$
+    PriceToBuy: 4
+    PriceToSell: 2
+  - Type: 3
+    Icon: {fileID: 3589850620817120259, guid: 95cde8c188e14144699a9b4ebe96c444, type: 3}
+    Name: Metallic Swing
+    PriceToBuyText: 6$
+    PriceToSellText: 3$
+    PriceToBuy: 6
+    PriceToSell: 3
+  - Type: 4
+    Icon: {fileID: 1084495889696105424, guid: 6d268fca0e4c2bb4d9f041b110b697fd, type: 3}
+    Name: Wooden Stick
+    PriceToBuyText: 5$
+    PriceToSellText: 2$
+    PriceToBuy: 5
+    PriceToSell: 2
+  - Type: 5
+    Icon: {fileID: -5299341983969237341, guid: 9424c5062fbe4354081d4fdb1718e10b, type: 3}
+    Name: Metallic Stick
+    PriceToBuyText: 7$
+    PriceToSellText: 4$
+    PriceToBuy: 7
+    PriceToSell: 4
+  - Type: 6
+    Icon: {fileID: 1342954271244971394, guid: ce92ef013cad45e48aa7a926f727ccf6, type: 3}
+    Name: Wooden Hatchet
+    PriceToBuyText: 10$
+    PriceToSellText: 5$
+    PriceToBuy: 10
+    PriceToSell: 5
+  - Type: 7
+    Icon: {fileID: 2927780931842212934, guid: 6b85c36702cbabd48a28e95c765d6d44, type: 3}
+    Name: Metallic Hatchet
+    PriceToBuyText: 15$
+    PriceToSellText: 8$
+    PriceToBuy: 15
+    PriceToSell: 8
+  - Type: 8
+    Icon: {fileID: 8953997984617710940, guid: 31c3e7ae2a3af5549890e88e89b86481, type: 3}
+    Name: Wooden Hammer
+    PriceToBuyText: 6$
+    PriceToSellText: 3$
+    PriceToBuy: 6
+    PriceToSell: 3
+  - Type: 9
+    Icon: {fileID: -7376143277279250243, guid: 77aecdac4d78cba41b709c647b0d42e0, type: 3}
+    Name: Metallic Hammer
+    PriceToBuyText: 9$
+    PriceToSellText: 5$
+    PriceToBuy: 9
+    PriceToSell: 5
