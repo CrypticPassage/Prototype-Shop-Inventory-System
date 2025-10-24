@@ -15,8 +15,20 @@ namespace Items
         [SerializeField] private Button clickButton;
         
         private EItemType _type;
-
+        private float _price;
+        
         public Button ClickButton => clickButton;
+        public float Price
+        {
+            get => _price;
+            set => _price = value;
+        }
+        
+        public EItemType Type
+        {
+            get => _type;
+            set => _type = value;
+        }
         
         public void SetData(ItemVo data)
         {
@@ -24,6 +36,7 @@ namespace Items
             name.text = data.Name;
             priceToBuyText.text = data.PriceToBuyText;
             
+            _price = data.PriceToBuy;
             _type = data.Type;
         }
 

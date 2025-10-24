@@ -1,7 +1,8 @@
 ﻿using Collections;
 using Databases.Impls;
+using Enums;
 using Items;
-using Services;
+using Listeners;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ namespace Handlers.Impls
 {
     public class ShopHandler : MonoBehaviour, IShopHandler
     {
+        [SerializeField] private ActionListeners _actionListeners;
         [SerializeField] private GameObject _shopContainer;
         [SerializeField] private ShopItemsCollection _shopItemsCollection;
         [SerializeField] private ItemsDatabase _itemsDatabase;
@@ -27,8 +29,11 @@ namespace Handlers.Impls
 
         private void InitializeItems()
         {
-            for (var i = 0; i < _shopItemsCollection.ShopItems.Length; i++)
+            for (var i = 0; i < _itemsDatabase.Items.Length; i++)
             {
+                if (_itemsDatabase.Items[i].Type == EItemType.None)
+                    continue;
+                
                 var item = _shopItemsCollection.ShopItems[i];
                 
                 item.SetData(_itemsDatabase.Items[i]);
@@ -46,8 +51,7 @@ namespace Handlers.Impls
                 return;
             }
             
-            if (_activeItem != null)
-                _activeItem.SetItemActivity();
+            _activeItem?.SetItemActivity();
             
             item.SetItemActivity();
             _activeItem = item;
@@ -55,7 +59,10 @@ namespace Handlers.Impls
 
         private void OnBuyButtonClick()
         {
-            // TODO
+            if (_activeItem == null)
+                return;
+            
+            _actionListeners.OnItemBuy?.Invoke(_activeItem.Type, _activeItem.Price);
         }
     }
 }

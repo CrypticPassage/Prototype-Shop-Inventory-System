@@ -1,4 +1,4 @@
-﻿namespace Services
+﻿namespace Handlers
 {
     public interface IShopHandler
     {

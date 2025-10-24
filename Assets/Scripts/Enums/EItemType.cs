@@ -11,6 +11,7 @@
         WoodenHatchet,
         MetallicHatchet,
         WoodenHammer,
-        MetallicHammer
+        MetallicHammer,
+        None
     }
 }

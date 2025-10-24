@@ -83,3 +83,10 @@ MonoBehaviour:
     PriceToSellText: 5$
     PriceToBuy: 9
     PriceToSell: 5
+  - Type: 10
+    Icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    Name: 
+    PriceToBuyText: 
+    PriceToSellText: 
+    PriceToBuy: 0
+    PriceToSell: 0
