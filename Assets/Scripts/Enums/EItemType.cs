@@ -3,15 +3,15 @@
     public enum EItemType
     {
         WoodenSword,
-        MetallicSword,
+        IronSword,
         WoodenSwing,
-        MetallicSwing,
+        IronSwing,
         WoodenStick,
-        MetallicStick,
+        IronStick,
         WoodenHatchet,
-        MetallicHatchet,
+        IronHatchet,
         WoodenHammer,
-        MetallicHammer,
+        IronHammer,
         None
     }
 }

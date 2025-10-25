@@ -3,6 +3,7 @@ using Databases.Impls;
 using Enums;
 using Items;
 using Listeners;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,19 +11,23 @@ namespace Handlers.Impls
 {
     public class ShopHandler : MonoBehaviour, IShopHandler
     {
-        [SerializeField] private ActionListeners _actionListeners;
+        [SerializeField] private Actions _actions;
         [SerializeField] private GameObject _shopContainer;
         [SerializeField] private ShopItemsCollection _shopItemsCollection;
+        [SerializeField] private TMP_Text _activeItemDescriptionText;
         [SerializeField] private ItemsDatabase _itemsDatabase;
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _buyButton;
         
         private ShopItem _activeItem;
+
+        public GameObject ShopContainer => _shopContainer;
         
         public void InitializeShop()
         {
-            _closeButton.onClick.AddListener(() => _shopContainer.gameObject.SetActive(false));
+            _closeButton.onClick.AddListener(OnCloseButtonClick);
             _buyButton.onClick.AddListener(OnBuyButtonClick);
+            _activeItemDescriptionText.gameObject.SetActive(false);
             
             InitializeItems();
         }
@@ -45,16 +50,31 @@ namespace Handlers.Impls
         {
             if (_activeItem == item)
             {
-                _activeItem.SetItemActivity();
+                _activeItem.ChangeItemActivity();
+                _activeItemDescriptionText.gameObject.SetActive(false);
                 _activeItem = null;
                 
                 return;
             }
             
-            _activeItem?.SetItemActivity();
+            _activeItem?.ChangeItemActivity();
             
-            item.SetItemActivity();
+            item.ChangeItemActivity();
+            _activeItemDescriptionText.text = _itemsDatabase.GetItemDataByType(item.Type).Description;
+            _activeItemDescriptionText.gameObject.SetActive(true);
             _activeItem = item;
+        }
+
+        private void OnCloseButtonClick()
+        {
+            _shopContainer.gameObject.SetActive(false);
+
+            if (_activeItem == null)
+                return;
+            
+            _activeItem.ChangeItemActivity();
+            _activeItemDescriptionText.gameObject.SetActive(false);
+            _activeItem = null;
         }
 
         private void OnBuyButtonClick()
@@ -62,7 +82,7 @@ namespace Handlers.Impls
             if (_activeItem == null)
                 return;
             
-            _actionListeners.OnItemBuy?.Invoke(_activeItem.Type, _activeItem.Price);
+            _actions.OnItemBuy?.Invoke(_activeItem.Type, _activeItem.Price);
         }
     }
 }

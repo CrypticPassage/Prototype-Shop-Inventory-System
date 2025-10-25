@@ -8,21 +8,16 @@ namespace Items
 {
     public class ShopItem : MonoBehaviour
     {
-        [SerializeField] private Image icon;
+        [SerializeField] private Image iconImage;
         [SerializeField] private Image activeImage;
         [SerializeField] private TMP_Text name;
-        [SerializeField] private TMP_Text priceToBuyText;
+        [SerializeField] private TMP_Text priceText;
         [SerializeField] private Button clickButton;
         
         private EItemType _type;
         private float _price;
         
         public Button ClickButton => clickButton;
-        public float Price
-        {
-            get => _price;
-            set => _price = value;
-        }
         
         public EItemType Type
         {
@@ -30,17 +25,23 @@ namespace Items
             set => _type = value;
         }
         
+        public float Price
+        {
+            get => _price;
+            set => _price = value;
+        }
+        
         public void SetData(ItemVo data)
         {
-            icon.sprite = data.Icon;
+            iconImage.sprite = data.Icon;
             name.text = data.Name;
-            priceToBuyText.text = data.PriceToBuyText;
+            priceText.text = data.PriceToBuy.ToString();
             
             _price = data.PriceToBuy;
             _type = data.Type;
         }
 
-        public void SetItemActivity() 
+        public void ChangeItemActivity() 
             => activeImage.gameObject.SetActive(!activeImage.gameObject.activeSelf);
     }
 }

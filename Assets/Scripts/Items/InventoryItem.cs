@@ -13,16 +13,12 @@ namespace Items
         [SerializeField] private TMP_Text amountText;
         [SerializeField] private Button clickButton;
         
-        private int _amount;
         private EItemType _type;
+        private float _priceToSell;
+        private int _amount;
 
+        public TMP_Text AmountText => amountText;
         public Button ClickButton => clickButton;
-        
-        public int Amount
-        {
-            get => _amount;
-            set => _amount = value;
-        }
         
         public EItemType Type
         {
@@ -30,20 +26,27 @@ namespace Items
             set => _type = value;
         }
         
+        public float PriceToSell
+        {
+            get => _priceToSell;
+            set => _priceToSell = value;
+        }
+        
+        public int Amount
+        {
+            get => _amount;
+            set => _amount = value;
+        }
+        
         public void SetData(ItemVo data)
         {
             icon.sprite = data.Icon;
             
             _type = data.Type;
+            _priceToSell = data.PriceToSell;
         }
-
-        public void SetAmountVisibility(bool isVisible)
-        {
-            amountText.text = _amount.ToString();
-            amountText.gameObject.SetActive(isVisible);
-        }
-
-        public void SetItemActivity() 
+        
+        public void ChangeItemActivity() 
             => activeImage.gameObject.SetActive(!activeImage.gameObject.activeSelf);
     }
 }

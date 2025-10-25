@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace Listeners
 {
-    public class ActionListeners : MonoBehaviour
+    public class Actions : MonoBehaviour
     {
         public Action<EItemType, float> OnItemBuy;
+        public Action<EItemType, float> OnItemUse;
     }
 }

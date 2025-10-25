@@ -10,8 +10,7 @@ namespace Models
         public EItemType Type;
         public Sprite Icon;
         public string Name;
-        public string PriceToBuyText;
-        public string PriceToSellText;
+        public string Description;
         public float PriceToBuy;
         public float PriceToSell;
     }

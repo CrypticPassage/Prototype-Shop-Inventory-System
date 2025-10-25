@@ -16,19 +16,50 @@ namespace Handlers.Impls
         
         public void InitializeInventory()
         {
-           InitializeItems();
+            InitializeItems();
         }
 
-        public void AddItem(EItemType type)
+        public void AddItem(InventoryItem item, EItemType type)
         {
-            var item = GetItemFromCollectionToAdd(type);
+            item.Amount += 1;
+            item.AmountText.text = item.Amount.ToString();
+            item.SetData(_itemsDatabase.GetItemDataByType(type));
+            item.AmountText.gameObject.SetActive(true);
+        }
 
-            if (item == null)
+        public InventoryItem GetItemFromCollectionToAdd(EItemType type)
+        {
+            foreach (var item in _inventoryItemsCollection.InventoryItems)
+            {
+                if (item.Type == type)
+                    return item;
+            }
+
+            return _inventoryItemsCollection.InventoryItems.FirstOrDefault(item => item.Type == EItemType.None);
+        }
+        
+        public void RemoveActiveItem()
+        {
+            if (_activeItem.Amount <= 0)
+                return;
+
+            _activeItem.Amount -= 1;
+            _activeItem.AmountText.text = _activeItem.Amount.ToString();
+
+            if (_activeItem.Amount > 0) 
                 return;
             
-            item.Amount += 1;
-            item.SetData(_itemsDatabase.GetItemDataByType(type));
-            item.SetAmountVisibility(true);
+            _activeItem.SetData(_itemsDatabase.GetItemDataByType(EItemType.None));
+            _activeItem.AmountText.gameObject.SetActive(false);
+        }
+
+        public void DeactivateActiveItem()
+        {
+            if (_activeItem == null)
+                return;
+            
+            _activeItem.ChangeItemActivity();
+            _activeItem = null;
         }
 
         private void InitializeItems()
@@ -36,7 +67,7 @@ namespace Handlers.Impls
             foreach (var item in _inventoryItemsCollection.InventoryItems)
             {
                 item.SetData(_itemsDatabase.GetItemDataByType(EItemType.None));
-                item.SetAmountVisibility(false);
+                item.AmountText.gameObject.SetActive(false);
                 
                 item.ClickButton.onClick.AddListener(() => OnItemClick(item));
             }
@@ -46,27 +77,16 @@ namespace Handlers.Impls
         {
             if (_activeItem == item)
             {
-                _activeItem.SetItemActivity();
+                _activeItem.ChangeItemActivity();
                 _activeItem = null;
                 
                 return;
             }
 
-            _activeItem?.SetItemActivity();
+            _activeItem?.ChangeItemActivity();
 
-            item.SetItemActivity();
+            item.ChangeItemActivity();
             _activeItem = item;
-        }
-
-        private InventoryItem GetItemFromCollectionToAdd(EItemType type)
-        {
-            foreach (var item in _inventoryItemsCollection.InventoryItems)
-            {
-                if (item.Type == type)
-                    return item;
-            }
-
-            return _inventoryItemsCollection.InventoryItems.FirstOrDefault(item => item.Type == EItemType.None);
         }
     }
 }
