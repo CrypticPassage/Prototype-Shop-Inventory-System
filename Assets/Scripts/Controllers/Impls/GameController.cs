@@ -2,6 +2,7 @@
 using Enums;
 using Handlers.Impls;
 using Listeners;
+using Objects;
 using Services.Impls;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,13 +15,14 @@ namespace Controllers.Impls
         [SerializeField] private CurrencyService _currencyService;
         [SerializeField] private ShopHandler _shopHandler;
         [SerializeField] private InventoryHandler _inventoryHandler;
+        [SerializeField] private BuildingsHandler _buildingsHandler;
         [SerializeField] private GameSettingsDatabase _gameSettingsDatabase;
         [SerializeField] private Button _openShopButton;
 
         private void OnEnable()
         {
             _actions.OnItemBuy += OnItemBuy;
-            _actions.OnItemUse += OnItemUse;
+            _actions.OnBuildingClick += OnBuildingClick;
         }
 
         private void Start()
@@ -30,12 +32,13 @@ namespace Controllers.Impls
             _currencyService.AddCurrency(_gameSettingsDatabase.CurrencyAmountAtStart);
             _shopHandler.InitializeShop();
             _inventoryHandler.InitializeInventory();
+            _buildingsHandler.InitializeBuildings();
         }
         
         private void OnDisable()
         {
             _actions.OnItemBuy -= OnItemBuy;
-            _actions.OnItemUse -= OnItemUse;
+            _actions.OnBuildingClick -= OnBuildingClick;
         }
 
         private void OnOpenShopButton()
@@ -58,9 +61,13 @@ namespace Controllers.Impls
             _inventoryHandler.AddItem(item, type);
         }
 
-        private void OnItemUse(EItemType type, float price)
+        private void OnBuildingClick(Building building)
         {
-            _currencyService.AddCurrency(price);
+            if (_inventoryHandler.ActiveItem == null ||
+                !_inventoryHandler.IsItemCanBeUsedToBuilding(_inventoryHandler.ActiveItem, building))
+                return;
+            
+            _currencyService.AddCurrency(_inventoryHandler.ActiveItem.PriceToSell); 
             _inventoryHandler.RemoveActiveItem();
         }
     }

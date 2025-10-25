@@ -3,6 +3,7 @@ using Collections;
 using Databases.Impls;
 using Enums;
 using Items;
+using Objects;
 using UnityEngine;
 
 namespace Handlers.Impls
@@ -13,6 +14,8 @@ namespace Handlers.Impls
         [SerializeField] private ItemsDatabase _itemsDatabase;
         
         private InventoryItem _activeItem;
+        
+        public InventoryItem ActiveItem => _activeItem;
         
         public void InitializeInventory()
         {
@@ -62,6 +65,15 @@ namespace Handlers.Impls
             _activeItem = null;
         }
 
+        public bool IsItemCanBeUsedToBuilding(InventoryItem item, Building building)
+        {
+            foreach (var type in building.AcceptableItemTypes)
+                if (type == item.Type)
+                    return true;
+
+            return false;
+        }
+        
         private void InitializeItems()
         {
             foreach (var item in _inventoryItemsCollection.InventoryItems)

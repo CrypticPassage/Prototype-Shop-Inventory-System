@@ -1,5 +1,6 @@
 ﻿using System;
 using Enums;
+using Objects;
 using UnityEngine;
 
 namespace Listeners
@@ -7,6 +8,6 @@ namespace Listeners
     public class Actions : MonoBehaviour
     {
         public Action<EItemType, float> OnItemBuy;
-        public Action<EItemType, float> OnItemUse;
+        public Action<Building> OnBuildingClick;
     }
 }

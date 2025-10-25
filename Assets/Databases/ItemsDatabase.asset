@@ -18,61 +18,61 @@ MonoBehaviour:
     Name: Wooden Sword
     Description: Just a Wooden Sword
     PriceToBuy: 5
-    PriceToSell: 3
+    PriceToSell: 8
   - Type: 1
     Icon: {fileID: -6981641179300335697, guid: bf3a248c821223144bc2577a9824d0b1, type: 3}
     Name: Iron Sword
     Description: Just a Iron Sword
     PriceToBuy: 8
-    PriceToSell: 4
+    PriceToSell: 12
   - Type: 2
     Icon: {fileID: 2750178941999587609, guid: 590a46323d3f8d243a55d887f1a54521, type: 3}
     Name: Wooden Swing
     Description: Just a Wooden Swing
     PriceToBuy: 4
-    PriceToSell: 2
+    PriceToSell: 6
   - Type: 3
     Icon: {fileID: 3589850620817120259, guid: 95cde8c188e14144699a9b4ebe96c444, type: 3}
     Name: Iron Swing
     Description: Just a Iron Swing
     PriceToBuy: 6
-    PriceToSell: 3
+    PriceToSell: 9
   - Type: 4
     Icon: {fileID: 1084495889696105424, guid: 6d268fca0e4c2bb4d9f041b110b697fd, type: 3}
     Name: Wooden Stick
     Description: Just a Wooden Stick
     PriceToBuy: 5
-    PriceToSell: 2
+    PriceToSell: 7
   - Type: 5
     Icon: {fileID: -5299341983969237341, guid: 9424c5062fbe4354081d4fdb1718e10b, type: 3}
     Name: Iron Stick
     Description: Just a Iron Stick
     PriceToBuy: 7
-    PriceToSell: 4
+    PriceToSell: 9
   - Type: 6
     Icon: {fileID: 1342954271244971394, guid: ce92ef013cad45e48aa7a926f727ccf6, type: 3}
     Name: Wooden Hatchet
     Description: Just a Wooden Hatchet
     PriceToBuy: 10
-    PriceToSell: 5
+    PriceToSell: 15
   - Type: 7
     Icon: {fileID: 2927780931842212934, guid: 6b85c36702cbabd48a28e95c765d6d44, type: 3}
     Name: Iron Hatchet
     Description: Just a Iron Hatchet
     PriceToBuy: 15
-    PriceToSell: 8
+    PriceToSell: 25
   - Type: 8
     Icon: {fileID: 8953997984617710940, guid: 31c3e7ae2a3af5549890e88e89b86481, type: 3}
     Name: Wooden Hammer
     Description: Just a Wooden Hammer
     PriceToBuy: 6
-    PriceToSell: 3
+    PriceToSell: 9
   - Type: 9
     Icon: {fileID: -7376143277279250243, guid: 77aecdac4d78cba41b709c647b0d42e0, type: 3}
     Name: Iron Hammer
     Description: Just a Iron Hammer
     PriceToBuy: 9
-    PriceToSell: 5
+    PriceToSell: 15
   - Type: 10
     Icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     Name: 
