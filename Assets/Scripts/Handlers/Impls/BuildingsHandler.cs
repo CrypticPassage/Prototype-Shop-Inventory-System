@@ -11,12 +11,12 @@ namespace Handlers.Impls
         [SerializeField] private Actions _actions;
         [SerializeField] private BuildingsCollection _buildingsCollection;
         [SerializeField] private BuildingsDatabase _buildingsDatabase;
-
+        
         public void InitializeBuildings()
         {
             for (var i = 0; i < _buildingsDatabase.Buildings.Length; i++)
             {
-                var building = _buildingsCollection.Buildings[i];
+                var building = _buildingsCollection.Items[i];
                 
                 building.SetData(_buildingsDatabase.Buildings[i]);
                 building.ClickButton.onClick.AddListener(() => OnBuildingClick(building));

@@ -861,6 +861,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconImage: {fileID: 1562193229489251664}
   activeImage: {fileID: 1475564971667921934}
-  name: {fileID: 3275824494829035015}
-  priceText: {fileID: 2406689343762254701}
   clickButton: {fileID: 1927732813068031073}
+  nameText: {fileID: 3275824494829035015}
+  priceText: {fileID: 2406689343762254701}

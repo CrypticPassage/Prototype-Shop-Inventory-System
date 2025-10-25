@@ -1,12 +1,9 @@
 ﻿using Objects;
-using UnityEngine;
 
 namespace Collections
 {
-    public class BuildingsCollection : MonoBehaviour
+    public class BuildingsCollection : ABaseCollection<Building>
     {
-        [SerializeField] private Building[] _buildings;
-
-        public Building[] Buildings => _buildings;
+        
     }
 }

@@ -1,52 +1,22 @@
-﻿using Enums;
-using Models;
+﻿using Models;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Items
 {
-    public class InventoryItem : MonoBehaviour
+    public class InventoryItem : ABaseItemView
     {
-        [SerializeField] private Image icon;
-        [SerializeField] private Image activeImage;
         [SerializeField] private TMP_Text amountText;
-        [SerializeField] private Button clickButton;
-        
-        private EItemType _type;
-        private float _priceToSell;
-        private int _amount;
 
         public TMP_Text AmountText => amountText;
-        public Button ClickButton => clickButton;
         
-        public EItemType Type
+        public float PriceToSell { get; private set; }
+        public int Amount { get; set; }
+
+        public override void SetData(ItemVo data)
         {
-            get => _type;
-            set => _type = value;
+            base.SetData(data);
+            PriceToSell = data.PriceToSell;
         }
-        
-        public float PriceToSell
-        {
-            get => _priceToSell;
-            set => _priceToSell = value;
-        }
-        
-        public int Amount
-        {
-            get => _amount;
-            set => _amount = value;
-        }
-        
-        public void SetData(ItemVo data)
-        {
-            icon.sprite = data.Icon;
-            
-            _type = data.Type;
-            _priceToSell = data.PriceToSell;
-        }
-        
-        public void ChangeItemActivity() 
-            => activeImage.gameObject.SetActive(!activeImage.gameObject.activeSelf);
     }
 }

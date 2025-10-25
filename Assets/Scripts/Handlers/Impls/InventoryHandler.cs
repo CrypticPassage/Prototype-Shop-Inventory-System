@@ -8,14 +8,10 @@ using UnityEngine;
 
 namespace Handlers.Impls
 {
-    public class InventoryHandler : MonoBehaviour, IInventoryHandler
+    public class InventoryHandler : ABaseItemHandler<InventoryItem>, IInventoryHandler
     {
         [SerializeField] private InventoryItemsCollection _inventoryItemsCollection;
         [SerializeField] private ItemsDatabase _itemsDatabase;
-        
-        private InventoryItem _activeItem;
-        
-        public InventoryItem ActiveItem => _activeItem;
         
         public void InitializeInventory()
         {
@@ -32,13 +28,13 @@ namespace Handlers.Impls
 
         public InventoryItem GetItemFromCollectionToAdd(EItemType type)
         {
-            foreach (var item in _inventoryItemsCollection.InventoryItems)
+            foreach (var item in _inventoryItemsCollection.Items)
             {
                 if (item.Type == type)
                     return item;
             }
 
-            return _inventoryItemsCollection.InventoryItems.FirstOrDefault(item => item.Type == EItemType.None);
+            return _inventoryItemsCollection.Items.FirstOrDefault(item => item.Type == EItemType.None);
         }
         
         public void RemoveActiveItem()
@@ -76,29 +72,13 @@ namespace Handlers.Impls
         
         private void InitializeItems()
         {
-            foreach (var item in _inventoryItemsCollection.InventoryItems)
+            foreach (var item in _inventoryItemsCollection.Items)
             {
                 item.SetData(_itemsDatabase.GetItemDataByType(EItemType.None));
                 item.AmountText.gameObject.SetActive(false);
                 
                 item.ClickButton.onClick.AddListener(() => OnItemClick(item));
             }
-        }
-        
-        private void OnItemClick(InventoryItem item)
-        {
-            if (_activeItem == item)
-            {
-                _activeItem.ChangeItemActivity();
-                _activeItem = null;
-                
-                return;
-            }
-
-            _activeItem?.ChangeItemActivity();
-
-            item.ChangeItemActivity();
-            _activeItem = item;
         }
     }
 }

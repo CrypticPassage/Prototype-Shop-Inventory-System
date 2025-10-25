@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Handlers.Impls
 {
-    public class ShopHandler : MonoBehaviour, IShopHandler
+    public class ShopHandler : ABaseItemHandler<ShopItem>, IShopHandler
     {
         [SerializeField] private Actions _actions;
         [SerializeField] private GameObject _shopContainer;
@@ -19,8 +19,6 @@ namespace Handlers.Impls
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _buyButton;
         
-        private ShopItem _activeItem;
-
         public GameObject ShopContainer => _shopContainer;
         
         public void InitializeShop()
@@ -39,14 +37,14 @@ namespace Handlers.Impls
                 if (_itemsDatabase.Items[i].Type == EItemType.None)
                     continue;
                 
-                var item = _shopItemsCollection.ShopItems[i];
+                var item = _shopItemsCollection.Items[i];
                 
                 item.SetData(_itemsDatabase.Items[i]);
                 item.ClickButton.onClick.AddListener(() => OnItemClick(item));
             }
         }
 
-        private void OnItemClick(ShopItem item)
+        protected override void OnItemClick(ShopItem item)
         {
             if (_activeItem == item)
             {

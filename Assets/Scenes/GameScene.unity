@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a146c7c0e1d45cda83db8f859d6bce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buildings:
+  _items:
   - {fileID: 785381053}
   - {fileID: 1983520996}
 --- !u!1 &32974994
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945a5c84945b4b4b8e75c5d98d03d667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shopItems:
+  _items:
   - {fileID: 1789905346}
   - {fileID: 1096734670}
   - {fileID: 2020521494}
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15cfd719fa84576afd777eb740e790a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inventoryItems:
+  _items:
   - {fileID: 1709587185}
   - {fileID: 794357411}
   - {fileID: 368247792}

@@ -1,12 +1,9 @@
 ﻿using Items;
-using UnityEngine;
 
 namespace Collections
 {
-    public class InventoryItemsCollection : MonoBehaviour
+    public class InventoryItemsCollection : ABaseCollection<InventoryItem>
     {
-        [SerializeField] private InventoryItem[] _inventoryItems;
-
-        public InventoryItem[] InventoryItems => _inventoryItems;
+        
     }
 }

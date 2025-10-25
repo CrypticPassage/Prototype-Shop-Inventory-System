@@ -1,12 +1,9 @@
 ﻿using Items;
-using UnityEngine;
 
 namespace Collections
 {
-    public class ShopItemsCollection : MonoBehaviour
+    public class ShopItemsCollection : ABaseCollection<ShopItem>
     {
-        [SerializeField] private ShopItem[] _shopItems;
-
-        public ShopItem[] ShopItems => _shopItems;
+        
     }
 }

@@ -423,10 +423,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c3c471bdc640bfacd754a02562e64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 9134775770895628236}
+  iconImage: {fileID: 9134775770895628236}
   activeImage: {fileID: 7595385595939494565}
-  amountText: {fileID: 2139774608314613688}
   clickButton: {fileID: 3205012117686222504}
+  amountText: {fileID: 2139774608314613688}
 --- !u!1 &8601979257011927879
 GameObject:
   m_ObjectHideFlags: 0
