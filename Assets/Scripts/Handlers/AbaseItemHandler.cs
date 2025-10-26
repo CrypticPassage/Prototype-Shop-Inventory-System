@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Handlers
 {
+    /// <summary>
+    /// Abstraction for Handlers.
+    /// Needed to be supplemented. It's an simple abstraction.
+    /// </summary>
     public abstract class ABaseItemHandler<TItem> : MonoBehaviour where TItem : ABaseItemView
     {
         protected TItem _activeItem;

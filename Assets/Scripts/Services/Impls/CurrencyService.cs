@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Services.Impls
 {
+    /// <summary>
+    /// This Service corresponds to the currency logic & gives methods to operate with currency amount.
+    /// </summary>
     public class CurrencyService : MonoBehaviour, ICurrencyService
     {
         [SerializeField] private TMP_Text _currencyAmountText;

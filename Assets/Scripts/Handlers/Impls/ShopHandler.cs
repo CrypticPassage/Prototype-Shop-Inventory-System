@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 namespace Handlers.Impls
 {
+    /// <summary>
+    /// This Handler corresponds to the shop logic & gives methods to operate with him.
+    /// </summary>
     public class ShopHandler : ABaseItemHandler<ShopItem>, IShopHandler
     {
         [SerializeField] private Actions _actions;

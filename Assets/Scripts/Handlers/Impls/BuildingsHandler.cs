@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Handlers.Impls
 {
+    /// <summary>
+    /// This Handler corresponds to the buildings logic & gives methods to operate with them.
+    /// </summary>
     public class BuildingsHandler : MonoBehaviour, IBuildingsHandler
     {
         [SerializeField] private Actions _actions;

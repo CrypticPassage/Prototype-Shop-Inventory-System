@@ -9,6 +9,11 @@ using UnityEngine.UI;
 
 namespace Controllers.Impls
 {
+    /// <summary>
+    /// This controller corresponds to the game logic.
+    /// Handlers & Services with areas of responsibility have been created, the controller accesses them.
+    /// The controller executes specific logic for each invoked signal.
+    /// </summary>
     public class GameController : MonoBehaviour, IGameController
     {
         [SerializeField] private Actions _actions;
@@ -18,7 +23,7 @@ namespace Controllers.Impls
         [SerializeField] private BuildingsHandler _buildingsHandler;
         [SerializeField] private GameSettingsDatabase _gameSettingsDatabase;
         [SerializeField] private Button _openShopButton;
-
+        
         private void OnEnable()
         {
             _actions.OnItemBuy += OnItemBuy;

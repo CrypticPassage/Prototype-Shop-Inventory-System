@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace Items
 {
+    /// <summary>
+    /// Abstraction for items.
+    /// </summary>
     public abstract class ABaseItemView : MonoBehaviour
     {
         [SerializeField] protected Image iconImage;

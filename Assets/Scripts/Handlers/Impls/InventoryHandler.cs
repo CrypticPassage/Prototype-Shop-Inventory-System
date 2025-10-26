@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace Handlers.Impls
 {
+    /// <summary>
+    /// This Handler corresponds to the inventory logic & gives methods to operate with him.
+    /// </summary>
     public class InventoryHandler : ABaseItemHandler<InventoryItem>, IInventoryHandler
     {
         [SerializeField] private InventoryItemsCollection _inventoryItemsCollection;

@@ -2,6 +2,9 @@
 
 namespace Collections
 {
+    /// <summary>
+    /// Abstraction for collections.
+    /// </summary>
     public abstract class ABaseCollection<T> : MonoBehaviour
     {
         [SerializeField] private T[] _items;
